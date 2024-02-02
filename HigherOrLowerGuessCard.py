@@ -32,4 +32,27 @@ for suit in SUIT_TUPLE:
     for thisValue, rank in enumerate(RANK_TUPLE):
         cardDict = {'rank':rank, 'suit':suit, 'value':thisValue + 1}
         startingDeckList.append(cardDict)
-        
+
+score = 50
+
+while True: #allow to play multiple games
+    print()
+    gameDeckList = shuffle(startingDeckList)
+    currentCardDict = getCard(gameDeckList)
+    currentCardRank = currentCardDict['rank']
+    currentCardValue = currentCardDict['value']
+    currentCardSuit = currentCardDict['suit']    
+    print('Starting card is:', currentCardRank + ' of ' + currentCardSuit)
+    print()
+
+    for cardNumber in range(0, NCARDS): # play one game of this many cards
+        answer = input('Will the next card be higher or lower than the ' + 
+                               currentCardRank + ' of ' + 
+                               currentCardSuit + '?  (enter h or l): ')
+        answer = answer.casefold()  # force lower case
+        nextCardDict = getCard(gameDeckList)
+        nextCardRank = nextCardDict['rank']
+        nextCardSuit = nextCardDict['suit']
+        nextCardValue = nextCardDict['value']
+        print('Next card is:', nextCardRank + ' of ' + nextCardSuit)
+
