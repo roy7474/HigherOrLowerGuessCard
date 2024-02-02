@@ -45,7 +45,7 @@ while True: #allow to play multiple games
     print('Starting card is:', currentCardRank + ' of ' + currentCardSuit)
     print()
 
-    for cardNumber in range(0, NCARDS): # play one game of this many cards
+    for cardNumber in range(0, ncards): # play one game of this many cards
         answer = input('Will the next card be higher or lower than the ' + 
                                currentCardRank + ' of ' + 
                                currentCardSuit + '?  (enter h or l): ')
@@ -72,3 +72,15 @@ while True: #allow to play multiple games
             else:
                 score = score - 15
                 print('Sorry, it was not lower')
+
+        print('Your score is:', score)
+        print()
+        currentCardRank = nextCardRank
+        currentCardValue = nextCardValue
+        currentCardSuit = nextCardSuit
+
+    goAgain = input('To play again, press ENTER, or "q" to quit: ')
+    if goAgain == 'q':
+        break
+
+print('OK bye')
